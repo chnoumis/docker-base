@@ -5,10 +5,6 @@ MAINTAINER chnoumis <it@chnoumis.com>
 # User root user to install software
 USER root
 
-# Add user
-RUN groupadd chnoumis
-RUN useradd -s /sbin/nologin -g chnoumis chnoumis
-
 # Install packages
 RUN apt-get update && apt-get install -y \
   ruby \
@@ -16,6 +12,9 @@ RUN apt-get update && apt-get install -y \
   curl \
   tar \
   unzip
+
+# Add user
+RUN groupadd chnoumis && adduser --system --home /opt/chnoumis --ingroup chnoumis chnoumis
   
 # Set the working directory to chnoumis user home directory
 WORKDIR /opt/chnoumis

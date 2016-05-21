@@ -5,6 +5,7 @@ USER root
 
 # Install packages
 RUN apk update && apk add \
+  bash \ 
   ruby \
   wget \
   curl \
@@ -12,7 +13,7 @@ RUN apk update && apk add \
   unzip
 
 # Add user
-RUN addgroup chnoumis && adduser -ms /bin/bash -D -G chnoumis chnoumis
+RUN addgroup chnoumis && adduser -s /bin/bash -D -G chnoumis chnoumis
 
 # Set the working directory to chnoumis user home directory
 WORKDIR /opt/chnoumis

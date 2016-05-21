@@ -1,12 +1,10 @@
-FROM debian:8.0
-
-MAINTAINER chnoumis <it@chnoumis.com>
+FROM alpine:3.3
 
 # User root user to install software
 USER root
 
 # Install packages
-RUN apt-get update && apt-get install -y \
+RUN apk update && apk add \
   ruby \
   wget \
   curl \
@@ -14,7 +12,7 @@ RUN apt-get update && apt-get install -y \
   unzip
 
 # Add user
-RUN groupadd chnoumis && adduser --system --home /opt/chnoumis --ingroup chnoumis chnoumis
+RUN addgroup chnoumis && adduser -s /bin/bash -D -G chnoumis chnoumis
   
 # Set the working directory to chnoumis user home directory
 WORKDIR /opt/chnoumis

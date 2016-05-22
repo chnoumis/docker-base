@@ -1,5 +1,7 @@
 FROM chnoumis/alpine:3.3
 
+MAINTAINER chnoumis
+
 # User root user to install software
 USER root
 

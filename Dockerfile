@@ -1,4 +1,4 @@
-FROM alpine:3.3
+FROM chnoumis/alpine:3.3
 
 # User root user to install software
 USER root
